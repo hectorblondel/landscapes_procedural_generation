@@ -272,7 +272,7 @@ def view(seed,wave_length,radius,n=100,pointview=[0.,0.,60.], pointsun = [0,0,-1
                     break
 
             if indice == -1 :
-                mat[i][j] = bleu_clair
+                mat[n-1-i][j] = bleu_clair
             else : 
                 point = somme(pointview,produit(indice*radius/view_precision,u))
                 vnormal = unitaire(vecteur_normal(bruit,point))
@@ -280,9 +280,9 @@ def view(seed,wave_length,radius,n=100,pointview=[0.,0.,60.], pointsun = [0,0,-1
                 basiccolor = couleur(bruit(point[:2])/altmax)
 
                 if basiccolor == bleu_fonce or basiccolor == bleu_demi_clair :
-                    mat[i][j] = basiccolor
+                    mat[n-1-i][j] = basiccolor
                 else :
-                    mat[i][j] = triplet(produit(abs(pscalaire(vnormal,vsoleil)),list(basiccolor)))
+                    mat[n-1-i][j] = triplet(produit(abs(pscalaire(vnormal,vsoleil)),list(basiccolor)))
 
     dim_fen = taille_fen,taille_fen
     taille_case = int(taille_fen/n)
@@ -312,17 +312,17 @@ def view(seed,wave_length,radius,n=100,pointview=[0.,0.,60.], pointsun = [0,0,-1
 
 
 
-for i in range(10,20):
+for i in range(20,30):
 
     pos = [120.,120.,60.]
-    seed = i
+    graine = i
     taille_map = 200
     wave_length = [60,20,10]
     n=200
     radius = 200
     view_precision = 50
 
-    view(seed,wave_length,radius,n,pointview=pos,view_precision=view_precision,show_image=False,save_image=True,name="img{}".format(str(i)))
+    view(graine,wave_length,radius,n,pointview=pos,view_precision=view_precision,show_image=False,save_image=True,name="img{}".format(str(i)))
 
 
 
