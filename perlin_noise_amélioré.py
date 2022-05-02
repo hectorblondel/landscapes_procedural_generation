@@ -320,7 +320,7 @@ for i in range(20,30):
     wave_length = [60,20,10]
     n=200
     radius = 200
-    view_precision = 70
+    view_precision = 80
 
     view(graine,wave_length,radius,n,pointview=pos,view_precision=view_precision,show_image=False,save_image=True,name="img{}".format(str(i)))
 
