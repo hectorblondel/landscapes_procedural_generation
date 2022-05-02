@@ -3,7 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
-import pygame
+try :
+    import pygame
 import sys
 import os
 import imageio
@@ -287,7 +288,7 @@ def view(seed,wave_length,radius,n=100,pointview=[0.,0.,60.], pointsun = [0,0,-1
 
     
     if save_image :
-        imageio.imwrite("saves/{}.jpeg".format(name),np.array(mat))
+        imageio.imwrite("saves/{}.png".format(name),np.array(mat))
 
     if show_image : 
         pygame.init()
@@ -310,15 +311,17 @@ def view(seed,wave_length,radius,n=100,pointview=[0.,0.,60.], pointsun = [0,0,-1
 
 
 
-pos = [120.,120.,60.]
-seed = 7
-taille_map = 200
-wave_length = [60,20,10]
-n=200
-radius = 200
-view_precision = 10
+for i in range(10,20):
 
-view(seed,wave_length,radius,n,pointview=pos,view_precision=view_precision,save_image=True,name="img")
+    pos = [120.,120.,60.]
+    seed = i
+    taille_map = 200
+    wave_length = [60,20,10]
+    n=200
+    radius = 200
+    view_precision = 50
+
+    view(seed,wave_length,radius,n,pointview=pos,view_precision=view_precision,show_image=False,save_image=True,name="img{}".format(str(i)))
 
 
 
