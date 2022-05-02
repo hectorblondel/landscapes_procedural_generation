@@ -5,6 +5,8 @@ import numpy as np
 import math
 try :
     import pygame
+except :
+    pass
 import sys
 import os
 import imageio
